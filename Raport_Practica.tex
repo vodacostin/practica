@@ -1,0 +1,202 @@
+\documentclass{report}
+\usepackage{ucs}
+\usepackage[pdftex]{graphicx}
+\usepackage[utf8x]{inputenc}
+\usepackage[english,romanian]{babel}
+\title{{\sc Raport asupra practicii: 25.06-06.07.2016}}
+\author{Vodă Costin - Claudiu}
+\date{\,}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\chapter{Introducere}
+
+Acest raport se poate și trebuie scris folosind modelul unei lucrări de licență care se găsește pe site-ul facultății. 
+
+
+
+
+
+
+\chapter{Activități planificate}
+\begin{enumerate}
+\item  Luni, 25.06.2018 \newline
+Aducerea la cunoștință a obiectivelor și cerințelor practicii de producție
+\item  Marți, 26.06.2018 \newline
+Configurarea sistemelor software pe calculatoare. 
+\item  Miercuri, 27.06.2018 \newline
+Studierea modului de lucru cu Git. Interfețe grafice de lucru cu Git (SmartGit).
+\item  Joi, 28.06.2018 \newline
+Studierea și practicarea LaTeX
+\item  Vineri, 29.06.2018 \newline
+ Inițierea unei lucrări (descrierea unui algoritm, a unei teme agreate cu prof. coordonator)
+\item  Luni, 02.07.2018 \newline
+Lucrul asupra lucrării
+\item  Marți, 03.07.2018  \newline
+Lucrul asupra lucrării
+\item  Miercuri, 04.07.2018  \newline
+Prezentarea lucrărllor
+\item  Joi, 05.07.2018 \newline
+Prezentarea lucrărilor
+\item  Vineri, 06.07.2018  \newline
+Notarea finală a activității
+\end{enumerate}
+\chapter{25.06.2018}
+Am desfăţurat următoarele activităţi:
+\begin{itemize}
+\item
+Am identificat sursele pentru MikTeX, Git, SmartGit și BitBucket.
+
+\item
+Am instalat, configurat pe calculatorul de lucru aplicațiile necesare:
+\begin{itemize}
+\item
+MikTeX
+\item
+SmartGit
+\item
+Bitbucket
+\end{itemize}
+
+
+\end{itemize}
+
+
+
+\chapter{26.06.2018}
+Am studiat modul de lucru cu Git și interfața grafică de lucru cu Git (SmartGit).
+\chapter{27.06.2018}
+Am studiat și am practicat Latex.
+\chapter{28.06.2018}
+Am studiat și am practicat Latex.
+\chapter{29.06.2018}
+Am inițiat o lucrare scrisă în Latex.\\
+\\
+
+
+	Quicksort este un celebru algoritm de sortare, dezvoltat de C. A. R. Hoare și care, în medie, efectuează ${\displaystyle \theta (n\log {n})}$ comparații pentru a sorta n elemente. În cazul cel mai defavorabil, efectuează ${\displaystyle O(n^{2})}$ comparații. De obicei, în practică, quicksort este mai rapid decât ceilalți algoritmi de sortare de complexitate ${\displaystyle \theta (n\log {n})}$ deoarece bucla sa interioară are implementări eficiente pe majoritatea arhitecturilor și, în plus, în majoritatea implementărilor practice se pot lua, la proiectare, decizii ce ajută la evitarea cazului când complexitatea algoritmului este de ${\displaystyle O(n^{2})}$.\\
+    \\
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5]{quick-sort.png}
+\end{figure}
+
+Algoritmul\\
+\\
+	Quicksort efectuează sortarea bazându-se pe o strategie divide et impera. Astfel, el împarte lista de sortat în două subliste mai ușor de sortat. Pașii algoritmului sunt:\\
+    \begin{itemize}
+  \item Se alege un element al listei, denumit pivot.
+  \item Se reordonează lista astfel încât toate elementele mai mici decât pivotul să fie plasate înaintea pivotului și toate elementele mai mari să fie după pivot. După această partiționare, pivotul se află în poziția sa finală.
+  \item Se sortează recursiv sublista de elemente mai mici decât pivotul și sublista de elemente mai mari decât pivotul.
+\end{itemize}
+O listă de dimensiune 0 sau 1 este considerată sortată.\\
+\\
+\\
+\\
+
+Pseudocod QuickSort:\\
+\\
+\\
+procedura QUICKSORT(A, inf, sup) este\\
+ i← inf\\
+ j← sup\\
+ x← A[(i+j) div 2]\\
+ repeta\\
+ 
+ cat timp (i\(<\)sup)/\ (A[i]\(<\)x) executa i← i+1\\
+ cat timp (j\(>\)inf) /\ (A[j]\(>\)x) executa j← j-1\\
+ daca i \(<\)=j atunci\\
+   	t← A[i]; A[i]← A[j]; A(j)← t\\
+   	i← i+1; j← j-1\\
+            
+ pana cand (i>j)\\
+ daca (inf<j) atunci QUICKSORT(A, inf, j)\\
+ daca (i<sup) atunci QUICKSORT(A, i, sup)\\
+
+
+
+\chapter{02.07.2018}
+Am continuat lucrul asupra temei și am terminat .\\
+\\
+\\
+\#include\(<\)stdio.h\(>\)\\
+void quicksort(int v[25],int first,int last)\{\\
+ int i, j, pivot, aux;\\
+   \\
+
+   if(first\(<\)last)\{\\
+      pivot=first;\\
+      i=first;\\
+      j=last;\\
+
+      while(i<j)\{\\
+         while(v[i]\(<\)=v[pivot]\&\&i \(<\) last)\\
+            i++;\\
+         while(v[j]\(>\)v[pivot])\\
+            j - -;\\
+         if(i\(<\)j){\\
+            aux=v[i];\\
+            v[i]=v[j];\\
+            v[j]=aux;\\
+         \}\\
+      \}\\
+
+      aux=v[pivot];\\
+      v[pivot]=v[j];\\
+      v[j]=aux;\\
+      quicksort(v,first,j-1);\\
+      quicksort(v,j+1,last);\\
+
+   \}\\
+\}
+
+int main(){\\
+   int i, n, v[25];\\
+
+   printf("Cate elemente doriti sa aibe vectorul?: ");\\
+   scanf("\%d",\&n);\\
+
+   printf("Introduceti \%d elemente: ", count);\\
+   for(i=0;i<n;i++)\\
+      scanf("\%d",\&v[i]);\\
+
+   quicksort(v,0,n-1);\\
+
+   printf("Vectorul sortat: ");\\
+   for(i=0;i<n;i++)\\
+      printf(" \%d",v[i]);\\
+
+   return 0;\\
+}\\
+
+
+\chapter{03.07.2018}
+Retușare proiect.
+\chapter{04.07.2018}
+Retușare proiect și l-am terminat.
+\chapter{05.07.2018}
+Am terminat.
+\chapter{06.07.2018}
+
+Notarea finală a activității.
+
+\chapter{Concluzii}
+Am invățat să lucrez cu Latex şi Git. \\
+\\
+\\
+
+			Latex are rolul de interfaţă peste limbajul TeX.Cu ajutorul LaTeX putem pregăti o gamă largă de documente destinate publicării în medii profesionale, de la cărți beletristice și articole de revistă până la manuale, documentații tehnice, teze de licență, de doctorat și alte lucrări academice (care conțin fotografii, ecuații matematice complexe, tabele și desene). Pentru acest fel de lucrări tipografice majore, LaTeX este imbatabil, fiindcă procesoarele de text – cum ar fi Microsoft Word sau îndrăgitul LibreOffice – nu se pot apropia de puterea sa, de calitatea și frumusețea paginilor tipărite generate de el.\\
+\\
+\\
+
+Git este un sistem revision control care rulează pe majoritatea platformelor, inclusiv Linux, POSIX, Windows și OS X. Ca și Mercurial, Git este un sistem distribuit și nu întreține o bază de date comună. Este folosit în echipe de dezvoltare mari, în care membrii echipei acționează oarecum independent și sunt răspândiți pe o arie geografică mare.
+
+Git este dezvoltat și întreținut de Junio Hamano, fiind publicat sub licență GPL și este considerat software liber.
+
+
+
+
+\end{document}
